@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fee = [125,555,44]
+
+        const calTip=(bill)=>{
+            const rs = (bill>50  && bill<300)?bill*0.15:bill*0.2
+            return rs
+        }
+
+        const tip = fee.map(calTip)
+        console.log(tip)
+
+        const totals = fee.map((bill) => bill + calTip(bill));
+        console.log(totals)
+
+        
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const per1={
+            fullName: "Mark Miller",
+            height: 1.69,
+            mass: 78,
+            calcBMI: function(){
+                this.bmi = this.mass/(this.height * this.height)
+                return this.bmi
+            }
+        }
+        const per2={
+            fullName: "John Smith",
+            height: 1.95, 
+            mass: 92, 
+            calcBMI: function(){
+                this.bmi = this.mass/(this.height * this.height)
+                return this.bmi
+            }
+        }
+
+        const rs = per1.calcBMI()>per2.calcBMI()?
+        `${per1.fullName} has BMI ${per1.calcBMI()} is higher than ${per2.fullName} ${per2.calcBMI()}!`:
+        `${per2.fullName} has ${per2.calcBMI()} is higher than ${per1.fullName} BMI ${per1.calcBMI()}!`
+
+
+        console.log(rs)
+    </script>
+</body>
+</html>

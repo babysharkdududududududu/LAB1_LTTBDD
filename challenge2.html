@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const mass1 = 78;
+        const mass2 = 92;
+        const height1 = 1.69;
+        const height2 = 1.95;
+
+        const BMI1 = (mass1 / (height1 * height1)).toFixed(2)
+        console.log(BMI1)
+        const BMI2 = (mass2 / (height2 * height2)).toFixed(2)
+        console.log(BMI2)
+
+        var higher = BMI1>BMI2?
+        `Mark's BMI ${BMI1} is higher than John's  ${BMI2}`
+        :`John's BMI  ${BMI2}  is higher than Mark's  ${BMI1}`
+        console.log(higher)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h5><b>Dolphin</b></h5>
+    <input type="text" placeholder="Score 1" id="d1">
+    <input type="text" placeholder="Score 2" id="d2">
+    <input type="text" placeholder="Score 3" id="d3">
+
+    <h5><b>Koalas</b></h5>
+    <input type="text" placeholder="Score 1" id="k1">
+    <input type="text" placeholder="Score 2" id="k2">
+    <input type="text" placeholder="Score 3" id="k3"><br><br>
+    <button onclick="calculatorAvg()">Calculator</button>
+
+    <script>
+        const calculatorAvg =()=>{
+            const d1 = parseFloat(document.getElementById("d1").value)
+            const d2 = parseFloat(document.getElementById("d2").value)
+            const d3 = parseFloat(document.getElementById("d3").value)
+
+            const k1 = parseFloat(document.getElementById("k1").value)
+            const k2 = parseFloat(document.getElementById("k2").value)
+            const k3 = parseFloat(document.getElementById("k3").value)
+
+            const dolphinArr = [];
+            dolphinArr.push(d1,d3,d2)
+            const init=0
+            const avgDolphin = dolphinArr.reduce((acc, curr)=>acc+curr, init)/dolphinArr.length;
+            console.log(avgDolphin)
+
+            const koalasArr = [];
+            koalasArr.push(k1,k2,k3)
+            const avgKoalas = koalasArr.reduce((acc, curr)=>acc+curr, init)/koalasArr.length
+            console.log(avgKoalas)
+
+            document.getElementById("d1").value = "";
+            document.getElementById("d2").value = "";
+            document.getElementById("d3").value = "";
+            document.getElementById("k1").value = "";
+            document.getElementById("k2").value = "";
+            document.getElementById("k3").value = "";
+            checkWinner(avgDolphin, avgKoalas);
+        }
+        
+        const checkWinner=(avgDolphin, avgKoalas)=>{
+
+            const rs = avgDolphin/avgKoalas>=2? `Dolphin is winner with ${avgDolphin} average score`:
+                        avgKoalas/avgDolphin>=2? `Koalas is winner with ${avgKoalas} average score`:
+                        `No teams win`
+            console.log(rs)
+        }
+        
+
+        
+    </script>
+</body>
+
+</html>
