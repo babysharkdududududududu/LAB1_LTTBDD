@@ -9,14 +9,12 @@
     <script>
         const arr = [17, 21, 23]
         const printForecast =(arr)=>{
-            let forecast=""
-            for(let i=0; i<arr.length; i++){
-                const temperature = arr[i];
-                const day = i+1
-                forecast+=` ${temperature}oC in ${ day } day${ day===1?' ':'s'}`;
-                console.log(forecast);
+            let day=1
+            arr.forEach((element)=>{
+                console.log(`...${element}oC in ${ day } day${day===1?"":"s"}`);
+                day++
+            })
 
-            }
         }
         printForecast(arr)
     </script>

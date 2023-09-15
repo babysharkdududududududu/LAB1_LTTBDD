@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const game = {
+            odds: {
+                team1: 2.0,  // Giá trị tỷ lệ cược cho đội 1
+                draw: 0,   // Giá trị tỷ lệ cược cho trận hòa
+                team2: 2.0   // Giá trị tỷ lệ cược cho đội 2
+            },
+        };
+
+        // Task 1
+        const players1 = ['Neuer', 'Kimmich', 'Süle', 'Hernandez', 'Davies', 'Goretzka', 'Müller', 'Sané', 'Gnabry', 'Choupo-Moting', "John"];
+        const players2 = ['Oblak', 'Trippier', 'Gimenez', 'Savic', 'Renan Lodi', 'Koke', 'Llorente', 'Lemar', 'Felix', 'Correa', "Henry"];
+        // Task 2
+        const gk = players1[0]
+        const fieldPlayers = players1.slice(1)
+        // Task 3
+        const allPlayers = [...players1, ...players2]
+        // Task 4
+        const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic']
+        // Task 5
+        const team1 = game.odds.team1;
+        const draw = game.odds.draw;
+        const team2 = game.odds.team2;
+
+        // task 6
+        const printGoals=(...playerNames)=>{
+            for(const playerName of playerNames){
+                console.log(playerName)
+            }
+            console.log(`Total goals scored: ${playerNames.length}`);
+        }
+        printGoals('Neuer', 'Kimmich', 'Süle');
+
+
+        const mostLikelyWinner = (team1 < team2) ? 'Team 1' : 'Team 2';
+        console.log(`The more likely winner is: ${mostLikelyWinner}`);
+        
+        game.odds.forEach((player, index) => {
+  console.log(`Goal ${index + 1}: ${player}`);
+});
+
+    </script>
+</body>
+</html>

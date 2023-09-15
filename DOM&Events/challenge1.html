@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 20:</p>
+    <input type="number" id="guess">
+    <button id="check">Check</button>
+    <p id="message"></p>
+    <p>Score: <span id="score">0</span></p>
+    <p>Secret Number: <span id="number">?</span></p>
+    <button id="again">Play Again</button>
+
+    <script>
+        // JavaScript code for game logic
+        const initialScore = 0;
+        const initialSecretNumber = Math.floor(Math.random() * 20) + 1;
+        let score = initialScore;
+        let secretNumber = initialSecretNumber;
+    
+        const messageElement = document.getElementById('message');
+        const scoreElement = document.getElementById('score');
+        const numberElement = document.getElementById('number');
+        const guessInput = document.getElementById('guess');
+        const againButton = document.getElementById('again');
+    
+        // Function to display a message
+        function displayMessage(message) {
+            messageElement.textContent = message;
+        }
+    
+        // Function to handle the "Check" button click
+        document.getElementById('check').addEventListener('click', function () {
+            const guess = Number(guessInput.value);
+    
+            // Check if the guess is valid
+            if (!guess || guess < 1 || guess > 20) {
+                displayMessage('Please enter a valid number between 1 and 20!');
+            } else {
+                // Check if the guess is correct
+                if (guess === secretNumber) {
+                    displayMessage('Congratulations! You guessed the correct number!');
+                    numberElement.textContent = secretNumber;
+                    numberElement.style.backgroundColor = '#60b347';
+    
+                    // Update the score
+                    score++;
+                    scoreElement.textContent = score;
+                } else {
+                    // Provide hints
+                    displayMessage(guess < secretNumber ? 'Too low! Try again.' : 'Too high! Try again.');
+    
+                    // Reduce the score (if it's not zero)
+                    if (score > 0) {
+                        score--;
+                        scoreElement.textContent = score;
+                    }
+                }
+            }
+        });
+    
+        // Attach a click event handler to the "Play Again" button
+        againButton.addEventListener('click', function () {
+            // Restore initial values
+            score = initialScore;
+            secretNumber = Math.floor(Math.random() * 20) + 1;
+    
+            // Restore initial conditions
+            displayMessage('Start guessing...');
+            scoreElement.textContent = score;
+            numberElement.textContent = '?';
+            guessInput.value = '';
+            numberElement.style.backgroundColor = '#222';
+        });
+    </script>
+    
+    
+</body>
+</html>
+
+</body>
+</html>

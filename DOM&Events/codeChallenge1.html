@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Guess the Number Game</h2>
+    <p>Enter number between 1 to 20</p>
+    <input placeholder="Enter your guess number" id="guess">
+    <button id="check">Check</button>
+    <p>Score: <span id="score"></span></p>
+    <p id="message"></p>
+    <p>Secret Number: <span id="number" style="background-color: #000;"></span></p>
+    <button id="again">Again</button>
+
+    <script>
+        const initScore=0
+        const initSecretNumber = Math.floor(Math.random()*20)+1
+
+        let score = initScore
+        let secretNumber = initSecretNumber
+
+        const guessInput = document.getElementById("guess")
+        const messageElement = document.getElementById("message")
+        const againButton = document.getElementById("again")
+        const scoreElement = document.getElementById("score")
+        const numberElement = document.getElementById("number")
+        numberElement.textContent = secretNumber
+
+
+        const showMessage = (mess)=>{
+            messageElement.textContent = mess
+        }
+
+        document.getElementById("check").addEventListener('click', function(){
+            const guess = Number(guessInput.value)
+            if(!guess||guess<1||guess>20){
+                showMessage("Please enter valid number")
+            }
+            else{
+                if(guess==secretNumber){
+                    showMessage("Congratulation! You guess correctly number")
+                    numberElement.style.background="#fff"
+                    numberElement.textContent = secretNumber
+                    score++
+                    scoreElement.textContent= score
+                }
+                else{
+                    showMessage(guess<secretNumber?"Enter higher number":"Enter lower number")
+                    if(score>1){
+                        score--
+                        scoreElement.textContent = score
+                    }
+                }
+            }
+        })
+        againButton.addEventListener('click', function() {
+            score = initScore
+            secretNumber = Math.floor(Math.random()*20)+1   
+
+            numberElement.style.background="#000"
+            messageElement.textContent = ""
+            scoreElement.textContent = ""
+            numberElement.textContent = secretNumber
+            
+    });
+
+
+    </script>
+</body>
+</html>
